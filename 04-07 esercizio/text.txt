@@ -26,7 +26,12 @@ WHERE `cfu` > '10';
 SELECT * 
 FROM `students` 
 WHERE `date_of_birth` <= '1992-01-01';
-da migliorare
+
+altrimenti
+
+SELECT * 
+FROM students 
+WHERE DATEDIFF(NOW(), date_of_birth)/365 > 30;
 
 4.
 SELECT * 
@@ -46,3 +51,10 @@ FROM `degrees`
 WHERE `name` LIKE '%Laurea Magistrale%';
 
 7.
+SELECT COUNT(`id`)
+FROM `departments`;
+
+8.
+SELECT COUNT(`name`) 
+FROM `teachers` 
+WHERE `phone` IS NOT NULL;
