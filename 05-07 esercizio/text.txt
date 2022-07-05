@@ -79,12 +79,13 @@ FROM degrees
 
 6. 
 SELECT *
+SELECT DISTINCT concat(teachers.name, ' ', teachers.surname) as fullname
 FROM teachers
-    JOIN course_teacher ON teachers.id = course_teacher.teacher_id
+	JOIN course_teacher ON teachers.id = course_teacher.teacher_id
     JOIN courses ON course_teacher.course_id = courses.id
-    JOIN degrees ON courses.id = degrees.id
-    JOIN departments ON degrees.department_id = departments.id
-WHERE departments.name = 'Dipartimento di Matematica';
+	JOIN degrees ON courses.degree_id = degrees.id
+WHERE degrees.department_id = '5';
+(54 total)
 
 DA CORREGGERE
 
