@@ -51,7 +51,7 @@ FROM `degrees`
 WHERE `name` LIKE '%Laurea Magistrale%';
 
 7.
-SELECT COUNT(`id`)
+SELECT COUNT(`id`) as departments_count
 FROM `departments`;
 
 8.
