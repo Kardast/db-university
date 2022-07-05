@@ -43,6 +43,7 @@ SELECT concat(students.name, ' ', students.surname) as fullname, degrees.name, d
 FROM `students`
 	JOIN `degrees` ON students.degree_id = degrees.id
 WHERE degrees.name LIKE '%Laurea in Economia';
+(68 total)
 
 2.
 SELECT *
@@ -50,8 +51,15 @@ FROM `degrees`
 	JOIN `departments` ON degrees.department_id = departments.id
 WHERE degrees.name LIKE '%Laurea Magistrale%'
 AND departments.name LIKE '%Neuroscienze%';
+(1 total)
 
 3.
+SELECT *
+FROM `courses`
+	JOIN `course_teacher` ON courses.id = course_teacher.course_id
+    JOIN teachers ON course_teacher.teacher_id = teachers.id
+WHERE teachers.id = '44';
+(11 total)
 
 4.
 
