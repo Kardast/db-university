@@ -62,6 +62,12 @@ WHERE teachers.id = '44';
 (11 total)
 
 4.
+SELECT *
+FROM students
+	JOIN `degrees` ON students.degree_id = degrees.id
+    JOIN `departments` ON degrees.department_id = departments.id
+ORDER BY concat(students.name, ' ', students.surname) ASC;
+(5000 total)
 
 5.
 
