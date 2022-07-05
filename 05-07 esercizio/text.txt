@@ -70,6 +70,12 @@ ORDER BY concat(students.name, ' ', students.surname) ASC;
 (5000 total)
 
 5.
+SELECT *
+FROM degrees
+	JOIN `courses` ON degrees.id = courses.id
+    JOIN `course_teacher` ON courses.id = course_teacher.course_id
+    JOIN teachers ON course_teacher.teacher_id = teachers.id;
+(5000 total)
 
 6.
 
