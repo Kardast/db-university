@@ -77,7 +77,16 @@ FROM degrees
     JOIN teachers ON course_teacher.teacher_id = teachers.id;
 (5000 total)
 
-6.
+6. 
+SELECT *
+FROM teachers
+    JOIN course_teacher ON teachers.id = course_teacher.teacher_id
+    JOIN courses ON course_teacher.course_id = courses.id
+    JOIN degrees ON courses.id = degrees.id
+    JOIN departments ON degrees.department_id = departments.id
+WHERE departments.name = 'Dipartimento di Matematica';
+
+DA CORREGGERE
 
 7.
 
