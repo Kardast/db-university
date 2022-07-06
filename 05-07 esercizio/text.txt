@@ -75,7 +75,7 @@ FROM degrees
 	JOIN `courses` ON degrees.id = courses.id
     JOIN `course_teacher` ON courses.id = course_teacher.course_id
     JOIN teachers ON course_teacher.teacher_id = teachers.id;
-(5000 total)
+(1317 total)
 
 6. 
 SELECT *
@@ -87,7 +87,23 @@ FROM teachers
 WHERE degrees.department_id = '5';
 (54 total)
 
-DA CORREGGERE
+or
+
+SELECT DISTINCT teachers.*, departments.name
+FROM teachers
+    JOIN course_teacher ON teachers.id = course_teacher.teacher_id
+    JOIN courses ON course_teacher.course_id = courses.id
+    JOIN degrees ON courses.degree_id = degrees.id
+    JOIN departments ON degrees.department_id = departments.id
+WHERE departments.name = 'Dipartimento di Matematica';
 
 7.
 
+SELECT students.surname, students.name, students.registration_number, courses.id as id_corso, courses.name as corso,  COUNT(courses.id - 1) as numero_tentativi_falliti, MAX(exam_student.vote) as voto
+FROM students
+    JOIN exam_student ON students.id = exam_student.student_id
+    JOIN exams ON exam_student.exam_id = exams.id
+    JOIN courses ON exams.course_id = courses.id
+GROUP BY courses.id, students.registration_number, students.name, students.surname
+HAVING voto > 17
+ORDER BY students.surname, students.name ASC;
